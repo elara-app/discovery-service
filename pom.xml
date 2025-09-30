@@ -57,6 +57,7 @@
 	<!-- - - - - - - - - - - - - -->
 	<dependencies>
 		<!-- Compile dependencies -->
+		<!-- spring-cloud-starter-netflix-eureka-server: Provides the Eureka Server implementation for service registry and discovery in Spring Cloud microservices architecture. -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
@@ -67,6 +68,12 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
+
+	<!--
+		dependencyManagement section is used to centralize and manage versions of dependencies.
+		The spring-cloud-dependencies BOM (Bill of Materials) ensures consistent versions for all Spring Cloud components.
+		By importing this BOM, you avoid version conflicts and simplify dependency upgrades.
+	-->
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
