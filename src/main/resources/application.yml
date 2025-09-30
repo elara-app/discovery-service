@@ -1,0 +1,12 @@
+# Spring Boot application configuration
+spring:
+  application:
+    name: discovery-service # Name of the Spring Boot application
+# Server configuration
+server:
+  port: 8761 # Port on which the server will run
+# Eureka client configuration
+eureka:
+  client:
+    register-with-eureka: false # Do not register this service with Eureka
+    fetch-registry: false # Do not fetch registry from the Eureka server
