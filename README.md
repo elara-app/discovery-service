@@ -1,3 +1,5 @@
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/elara-app/discovery-service)
+
 # Discovery Service
 
 Service registry for the Elara microservices platform, built with **Netflix Eureka Server**.
