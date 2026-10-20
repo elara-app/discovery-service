@@ -10,3 +10,9 @@ eureka:
   client:
     register-with-eureka: false # Do not register this service with Eureka
     fetch-registry: false # Do not fetch registry from the Eureka server
+# Actuator endpoints for health checks and observability
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
