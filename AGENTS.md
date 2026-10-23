@@ -7,7 +7,7 @@ Guidance for coding agents changing this repository. Source files and Compose ar
 - [`README.md`](README.md) — purpose, interfaces, run/verify, limitations, troubleshooting.
 - [`src/main/resources/application.yml`](src/main/resources/application.yml) — the runtime contract: service ID, port 8761, Eureka flags, actuator exposure.
 - [`src/main/resources/application-test.yml`](src/main/resources/application-test.yml) — the test profile CI activates.
-- [`infra/README.md`](../infra/README.md) — stack layout, ports and the canonical Compose workflow.
+- [infrastructure/README.md](https://github.com/elara-app/infrastructure#readme) — stack layout, ports and the canonical Compose workflow.
 - [`centralized-configuration`](https://github.com/elara-app/centralized-configuration) — client `EUREKA_URI` and profile matrix (not owned here).
 
 ## Scope and boundaries
@@ -42,11 +42,11 @@ sh ./mvnw test                                            # all tests
 sh ./mvnw test -Dtest=DiscoveryServiceApplicationTests    # focused test
 sh ./mvnw -B clean verify -Dspring.profiles.active=test   # canonical verify (CI)
 sh ./mvnw spring-boot:run                                 # standalone; no external deps
-docker compose -f ../infra/compose.yml config --quiet
-docker compose -f ../infra/compose.published.yml config --quiet
+docker compose -f ../infrastructure/compose.yml config --quiet
+docker compose -f ../infrastructure/compose.published.yml config --quiet
 ```
 
-Full-stack Compose verification: use the block in [`infra/README.md#verify-the-stack`](../infra/README.md#verify-the-stack). Do not paste or duplicate it here.
+Full-stack Compose verification: use the block in [infrastructure/README.md](https://github.com/elara-app/infrastructure#readme). Do not paste or duplicate it here.
 
 ## Repository map
 
@@ -117,12 +117,12 @@ Stop and get an explicit decision before:
 - Published image tags are `latest` and `sha-<short>`; there is no `1.3.1` tag.
 - `config-service` and `discovery-service` are not Eureka clients; only gateway, inventory and UOM are.
 - Self-preservation is on by default; no `eureka.server.*` tuning exists.
-- Do not duplicate the README interfaces table or the infra Compose block here; link instead.
+- Do not duplicate the README interfaces table or the infrastructure Compose block here; link instead.
 
 ## Documentation maintenance
 
 - `README.md` owns human onboarding: purpose, interfaces, run/verify, limitations, troubleshooting.
 - `AGENTS.md` (this file) owns agent rules: commands, invariants, gates, stop conditions, traps.
-- `infra/README.md` owns the stack/port overview and canonical Compose commands; `centralized-configuration/README.md` owns profiles, property ownership and secrets.
+- `infrastructure/README.md` owns the stack/port overview and canonical Compose commands; `centralized-configuration/README.md` owns profiles, property ownership and secrets.
 - When behavior changes, update the owning document, then fix links. Do not copy facts between documents; change the owner and point to it.
 - Keep both files within their line targets and free of stale `./mvnw`, `localhost`-inside-Compose, Config-Server-client and HA/persistence claims.

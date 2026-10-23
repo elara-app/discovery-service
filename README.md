@@ -36,7 +36,7 @@
 3. `api-gateway`, `inventory-service` and `unit-of-measure-service` register and resolve through discovery. `config-service` and `discovery-service` do not register.
 4. Docker health-gates the platform: gateway, inventory and UOM wait for discovery to become healthy. Discovery itself has no `depends_on` and does not wait for config, databases or the broker.
 
-Ports, stack layout and the canonical full-stack workflow live in [infra/README.md](../infra/README.md). Client profile values live in [`centralized-configuration`](https://github.com/elara-app/centralized-configuration).
+Ports, stack layout and the canonical full-stack workflow live in [infrastructure/README.md](https://github.com/elara-app/infrastructure#readme). Client profile values live in [`centralized-configuration`](https://github.com/elara-app/centralized-configuration).
 
 ## Interfaces
 
@@ -78,7 +78,7 @@ curl -s -H 'Accept: application/json' http://127.0.0.1:8761/eureka/apps
 
 Open the dashboard at `http://127.0.0.1:8761/`. A standalone server shows an empty registry; that is expected until clients register.
 
-For the full stack, follow [infra/README.md#verify-the-stack](../infra/README.md#verify-the-stack). After the stack is up, the dashboard is at `http://127.0.0.1:8761/` and the registry should list `API-GATEWAY`, `INVENTORY-SERVICE` and `UNIT-OF-MEASURE-SERVICE` instances.
+For the full stack, follow [infrastructure/README.md](https://github.com/elara-app/infrastructure#readme). After the stack is up, the dashboard is at `http://127.0.0.1:8761/` and the registry should list `API-GATEWAY`, `INVENTORY-SERVICE` and `UNIT-OF-MEASURE-SERVICE` instances.
 
 ## Configuration
 
@@ -132,6 +132,6 @@ sh ./mvnw -B clean verify -Dspring.profiles.active=test # canonical verify (CI)
 ## Documentation
 
 - [`AGENTS.md`](AGENTS.md) — agent rules, commands, invariants and known traps.
-- [`infra/README.md`](../infra/README.md) — stack layout, ports and canonical Compose verification.
+- [infrastructure/README.md](https://github.com/elara-app/infrastructure#readme) — stack layout, ports and canonical Compose verification.
 - [`centralized-configuration`](https://github.com/elara-app/centralized-configuration) — client profiles, `EUREKA_URI` and the profile matrix.
 - [`api-gateway`](https://github.com/elara-app/api-gateway) — route table, discovery locator and `lb://` resolution.
